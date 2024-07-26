@@ -21,12 +21,13 @@ date.innerHTML = `${month} ${day},${year}`;
 
 const getWeather = async () => {
     try {
-        const apiKey = "cdcfd382ca1c55c9fb69f5695f512073"; // API key kamu
+        const apiKey = "c"; // API key kamu
         const cityName = document.getElementById('searchBarInput').value;
         // Langkah 1: Dapatkan latitude dan longitude dari nama kota menggunakan API Geocoding
         const geocodingUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${apiKey}`;
         const geocodingResponse = await fetch(geocodingUrl);
         const geocodingData = await geocodingResponse.json();
+        console.log(geocodingData);
 
         if (geocodingData.length > 0) {
             const { lat, lon } = geocodingData[0]; // Ambil latitude dan longitude pertama yang ditemukan
